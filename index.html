@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ludo Lite</title>
+    <link rel="stylesheet" href="style.css?v=20260209-1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="kicker">Ludo Lite</p>
+          <h1>Race, capture, finish.</h1>
+        </div>
+        <div class="controls">
+          <button id="rollBtn" class="btn primary">Roll Dice</button>
+          <button id="resetBtn" class="btn ghost">Reset</button>
+          <div class="dice" id="dice">-</div>
+        </div>
+      </header>
+
+      <section class="layout">
+        <div class="board-wrap">
+          <div id="board" class="board" aria-label="Ludo board"></div>
+        </div>
+
+        <aside class="panel">
+          <div id="status" class="status">Ready.</div>
+          <div class="mode">
+            <label for="modeSelect">Mode</label>
+            <select id="modeSelect">
+              <option value="hvh2">Two Players</option>
+              <option value="hvai2">One Player Vs AI</option>
+              <option value="hvh3">Three Players</option>
+              <option value="hvh4" selected>Four Players</option>
+            </select>
+            <button id="startBtn" class="btn primary">Start Mode</button>
+          </div>
+          <div class="online">
+            <h2>Online (2P)</h2>
+            <div class="online-row">
+              <button id="createRoomBtn" class="btn primary">Create</button>
+              <input id="roomCodeInput" class="input" placeholder="Room code" maxlength="6" />
+              <button id="joinRoomBtn" class="btn ghost">Join</button>
+            </div>
+            <div class="online-row">
+              <div id="roomCodeDisplay" class="room-code">Room: -</div>
+              <button id="leaveRoomBtn" class="btn ghost">Leave</button>
+            </div>
+            <div id="onlineStatus" class="status small">Offline</div>
+          </div>
+          <div class="legend">
+            <div class="legend-item red">Red</div>
+            <div class="legend-item blue">Blue</div>
+            <div class="legend-item yellow">Yellow</div>
+            <div class="legend-item green">Green</div>
+          </div>
+          <div class="rules">
+            <h2>How to play</h2>
+            <ul>
+              <li>Roll a 6 to launch a token from home.</li>
+              <li>Capture by landing on an enemy (except safe cells).</li>
+              <li>Exact roll is needed to finish.</li>
+              <li>Rolling a 6 grants an extra turn.</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </main>
+    <div id="diceOverlay" class="dice-overlay" aria-hidden="true">
+      <div class="dice-pop" role="img" aria-label="Dice roll">
+        <span class="pip p1"></span>
+        <span class="pip p2"></span>
+        <span class="pip p3"></span>
+        <span class="pip p4"></span>
+        <span class="pip p5"></span>
+        <span class="pip p6"></span>
+        <span class="pip p7"></span>
+        <span class="pip p8"></span>
+        <span class="pip p9"></span>
+      </div>
+    </div>
+
+    <script>
+      window.LUDO_SERVER_URL = "";
+    </script>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="script.js?v=20260209-2"></script>
+  </body>
+</html>
